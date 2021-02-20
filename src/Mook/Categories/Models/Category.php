@@ -24,10 +24,28 @@ class Category extends Model implements CategoryInterface
 
     private $parent;
 
-    public function __construct(string $name, int $id = null)
-    {
+    public function __construct(string $name) {
         $this->name = $name;
+    }
+
+    public function setId($id): void
+    {
         $this->id = $id;
+    }
+
+    public function setIdNumber($idNumber): void
+    {
+        $this->idNumber = $idNumber;
+    }
+
+    public function setParent($parent): void
+    {
+        $this->parent = $parent;
+    }
+
+    public function setDescription($description): void
+    {
+        $this->description = $description;
     }
 
     public function id()
