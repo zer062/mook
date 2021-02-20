@@ -6,6 +6,7 @@ use Mook\Categories\Models\Category;
 
 class Model
 {
+    private $attributes = [];
 
     public function __get($name)
     {
