@@ -38,10 +38,8 @@ class CategoryHandler
     public function update(array $categories)
     {
         $request = new MoodleRequest(Category::CREATE_PARAMS_KEY, Category::UPDATE_ACTION);
-        $response = $this->api->setRequest($request->data($categories))->call();
-        return collect($response)->map(function ($item) {
-            return $this->prepareToResponse($item);
-        })->toArray();
+        $this->api->setRequest($request->data($categories))->call();
+        return [];
     }
 
     public function get()

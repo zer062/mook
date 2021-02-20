@@ -52,6 +52,10 @@ class Api
             throw new \Exception($responseBody->message, 400);
         }
 
+        if (is_null($responseBody)) {
+            return [];
+        }
+
         return $responseBody;
     }
 
