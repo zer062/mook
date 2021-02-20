@@ -38,7 +38,7 @@ class Api
     {
         return sprintf(
             "%s/webservice/rest/server.php?moodlewsrestformat=json&wstoken=%s&wsfunction=%s",
-            is_null($this->credentials->path()) ? '' : $this->credentials->path(),
+            is_null($this->credentials->path()) ? '' : "/{$this->credentials->path()}",
             $this->credentials->token(),
             $this->request->action()
         );
@@ -67,6 +67,7 @@ class Api
     public function call()
     {
         try {
+
             $response = $this->http->request(
                 'POST',
                 $this->getFullUrl(),
