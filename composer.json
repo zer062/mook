@@ -1,5 +1,5 @@
 {
-    "name": "caiovncius/mook",
+    "name": "zero62/mook",
     "description": "Moodle Rest API Connection SDK",
     "require": {
         "php": "^7.4",
@@ -9,8 +9,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Caio Vncius",
-            "email": "caio@vncius.com"
+            "name": "zero62",
+            "email": "caio@zero62.com"
         }
     ],
     "minimum-stability": "dev",

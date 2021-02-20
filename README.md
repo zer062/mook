@@ -1,2 +1,2 @@
 # mook
-Fast and simples Moodle rest api SDK
+Simple Moodle rest api SDK
