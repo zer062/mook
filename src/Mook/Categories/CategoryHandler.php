@@ -57,9 +57,6 @@ class CategoryHandler
     {
         $category = new Category($item->name);
         $category->setId($item->id);
-        $category->setIdNumber($item->idnumber);
-        $category->setDescription($item->description);
-        $category->setParent($item->parent);
         return $category;
     }
 
