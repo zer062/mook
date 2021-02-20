@@ -19,6 +19,11 @@ class MoodleCredentials implements Credentials
         $this->path = $path;
     }
 
+    public function setPath(string $path)
+    {
+        $this->path = $path;
+    }
+
     public function uri(): string
     {
         return $this->uri;
