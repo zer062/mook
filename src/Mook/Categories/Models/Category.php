@@ -76,6 +76,7 @@ class Category extends Model implements CategoryInterface
     public function mapToRequest(): array
     {
         return [
+            'id' => $this->id(),
             'name'=> $this->name(),
             'idnumber' => $this->idNumber(),
             'parent' => $this->parent(),
