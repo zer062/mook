@@ -37,7 +37,8 @@ class Api
     private function getFullUrl(): string
     {
         return sprintf(
-            "/webservice/rest/server.php?moodlewsrestformat=json&wstoken=%s&wsfunction=%s",
+            "%s/webservice/rest/server.php?moodlewsrestformat=json&wstoken=%s&wsfunction=%s",
+            is_null($this->credentials->path()) ? '' : $this->credentials->path(),
             $this->credentials->token(),
             $this->request->action()
         );

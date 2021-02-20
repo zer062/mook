@@ -10,10 +10,13 @@ class MoodleCredentials implements Credentials
 
     private string $token;
 
-    public function __construct(string $uri, string $token)
+    private $path;
+
+    public function __construct(string $uri, string $token, string $path = null)
     {
         $this->uri = $uri;
         $this->token = $token;
+        $this->path = $path;
     }
 
     public function uri(): string
@@ -24,6 +27,11 @@ class MoodleCredentials implements Credentials
     public function token(): string
     {
         return $this->token;
+    }
+
+    public function path()
+    {
+        return $this->path;
     }
 
 }
