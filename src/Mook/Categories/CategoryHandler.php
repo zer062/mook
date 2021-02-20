@@ -31,7 +31,7 @@ class CategoryHandler
         $request = new MoodleRequest(Category::CREATE_PARAMS_KEY, Category::CREATE_ACTION);
         $response = $this->api->setRequest($request->data($categories))->call();
         return collect($response)->map(function ($item) {
-            return new Category($item->name, $item->id);
+            return $this->prepareToResponse($item);
         })->toArray();
     }
 
@@ -40,8 +40,27 @@ class CategoryHandler
         $request = new MoodleRequest(Category::CREATE_PARAMS_KEY, Category::UPDATE_ACTION);
         $response = $this->api->setRequest($request->data($categories))->call();
         return collect($response)->map(function ($item) {
-            return new Category($item->name, $item->id);
+            return $this->prepareToResponse($item);
         })->toArray();
+    }
+
+    public function get()
+    {
+        $request = new MoodleRequest(Category::FIND_PARAMS_KEY, Category::GET_ACTION);
+        $response = $this->api->setRequest($request->data($this->filters()))->call();
+        return collect($response)->map(function ($item) {
+            return $this->prepareToResponse($item);
+        })->toArray();
+    }
+
+    private function prepareToResponse(\stdClass $item)
+    {
+        $category = new Category($item->name);
+        $category->setId($item->id);
+        $category->setIdNumber($item->idnumber);
+        $category->setDescription($item->description);
+        $category->setParent($item->parent);
+        return $category;
     }
 
     public function findByName(string $name)
@@ -88,21 +107,5 @@ class CategoryHandler
             'value' => $parentId
         ];
         return $this;
-    }
-
-    public function get()
-    {
-        $request = new MoodleRequest(Category::FIND_PARAMS_KEY, Category::GET_ACTION);
-        $response = $this->api->setRequest($request->data($this->filters()))->call();
-        return collect($response)->map(function ($item) {
-
-            $category = new Category($item->name);
-            $category->setId($item->id);
-            $category->setIdNumber($item->idnumber);
-            $category->setDescription($item->description);
-            $category->setParent($item->parent);
-            return $category;
-
-        })->toArray();
     }
 }
