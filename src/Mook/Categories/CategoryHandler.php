@@ -95,7 +95,14 @@ class CategoryHandler
         $request = new MoodleRequest(Category::FIND_PARAMS_KEY, Category::GET_ACTION);
         $response = $this->api->setRequest($request->data($this->filters()))->call();
         return collect($response)->map(function ($item) {
-            return new Category($item->name, $item->id);
+
+            $category = new Category($item->name);
+            $category->setId($item->id);
+            $category->setIdNumber($item->idnumber);
+            $category->setDescription($item->description);
+            $category->setParent($item->parent);
+            return $category;
+
         })->toArray();
     }
 }
