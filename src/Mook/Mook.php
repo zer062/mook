@@ -3,6 +3,7 @@
 namespace Mook;
 
 use Mook\Categories\CategoryHandler;
+use Mook\Categories\CourseHandler;
 use Mook\Configs\MoodleCredentials;
 use Mook\Configs\Contracts\Credentials;
 
@@ -22,6 +23,11 @@ class Mook
 
     public function categories(): CategoryHandler
     {
-        return new CategoryHandler($this->credentials);
+        return new CategoryHandler($this->credentials());
+    }
+
+    public function course(): CourseHandler
+    {
+        return new CourseHandler($this->credentials());
     }
 }
