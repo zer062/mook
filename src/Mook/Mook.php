@@ -26,7 +26,7 @@ class Mook
         return new CategoryHandler($this->credentials());
     }
 
-    public function course(): CourseHandler
+    public function courses(): CourseHandler
     {
         return new CourseHandler($this->credentials());
     }
