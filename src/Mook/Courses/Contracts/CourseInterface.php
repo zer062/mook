@@ -10,6 +10,8 @@ interface CourseInterface
 
     public function shortname();
 
+    public function idNumber();
+
     public function description();
 
     public function format();

@@ -12,7 +12,8 @@ class CategoriesTest extends TestCase
     {
         parent::setUp();
         $this->faker = \Faker\Factory::create();
-        $this->mook = new Mook\Mook('http://moodle38.test', 'f19ec28d814e6f0296c453b818bd0952');
+        $this->mook = new Mook\Mook('http://delorean.ite.edu.br', '5f143dcb05bdfa9eff649c0fe5ffd7c7');
+        $this->mook->credentials()->setPath('ead');
     }
 
     public function categoriesProvider()
