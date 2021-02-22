@@ -54,7 +54,7 @@ class CourseHandler
 
     private function prepareToResponseOnCreate(\stdClass $item)
     {
-        $course = new Course(null, $item->shortname, null);
+        $course = new Course('', $item->shortname, 0);
         $course->setId($item->id);
         return $course;
     }
