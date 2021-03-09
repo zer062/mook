@@ -29,16 +29,22 @@ class User extends Model implements UserInterface
 
     private $idNumber;
 
+    private $password;
+
+    private $auth = 'manual';
+
     public function __construct(
         string $username,
         string $firstname,
         string $lastname,
-        string $email
+        string $email,
+        string $password = null
     ){
         $this->username = $username;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
+        $this->password = $password;
     }
 
     public function username()
@@ -71,6 +77,11 @@ class User extends Model implements UserInterface
         return $this->email;
     }
 
+    public function auth()
+    {
+        return $this->auth;
+    }
+
     public function setId(int $id)
     {
         return $this->id = $id;
@@ -79,5 +90,21 @@ class User extends Model implements UserInterface
     public function setIdNumber(string $idNumber)
     {
         $this->idNumber = $idNumber;
+    }
+
+    public function setAuth(string $auth)
+    {
+        return $this->auth = $auth;
+    }
+
+    public function mapToRequest(): array
+    {
+        return [
+            'username' => $this->username,
+            'password' => $this->password,
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
+            'auth' => $this->auth
+        ];
     }
 }

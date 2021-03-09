@@ -15,4 +15,6 @@ interface UserInterface
     public function email();
 
     public function idNumber();
+
+    public function auth();
 }

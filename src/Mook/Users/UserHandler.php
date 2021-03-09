@@ -35,7 +35,12 @@ class UserHandler
 
     private function prepareToResponse(\stdClass $item)
     {
-        $user = new User($item->username, $item->firstname, $item->lastname, $item->email);
+        $user = new User(
+            $item->username,
+            $item->firstname,
+            $item->lastname,
+            $item->email
+        );
         $user->setId($item->id);
         $user->setIdNumber($item->idnumber);
         return $user;
@@ -83,7 +88,6 @@ class UserHandler
         ];
         return $this;
     }
-
 
     public function findById(int $id)
     {
