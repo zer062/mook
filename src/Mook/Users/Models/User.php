@@ -104,6 +104,7 @@ class User extends Model implements UserInterface
             'password' => $this->password,
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
+            'email' => $this->email,
             'auth' => $this->auth
         ];
     }
