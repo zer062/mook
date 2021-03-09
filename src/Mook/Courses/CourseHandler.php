@@ -1,6 +1,6 @@
 <?php
 
-namespace Mook\Categories;
+namespace Mook\Courses;
 
 use Mook\Categories\Models\Category;
 use Mook\Configs\Contracts\Credentials;

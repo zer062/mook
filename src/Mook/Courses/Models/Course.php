@@ -66,10 +66,10 @@ class Course extends Model implements CourseInterface
         return $this->category;
     }
 
-    public function setIdNumber(string $idNumber)
-    {
-        $this->idNumber = $idNumber;
-    }
+        public function setIdNumber(string $idNumber)
+        {
+            $this->idNumber = $idNumber;
+        }
 
     public function idNumber()
     {
