@@ -64,6 +64,10 @@ class Api
             return [];
         }
 
+        if (isset($responseBody->warnings)) {
+            throw new \Exception($responseBody->warnings[0]->message, 400);
+        }
+
         return $responseBody;
     }
 
