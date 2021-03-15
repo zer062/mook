@@ -74,6 +74,7 @@ class Api
     private function prepareBody(): array
     {
         return collect($this->request->body())->map(function($categories) {
+            if (!isset($categories[0])) return $categories;
             return collect($categories)->map(function ($category) {
                 return array_filter($category, fn($value) => !is_null($value));
             });
