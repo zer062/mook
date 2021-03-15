@@ -21,9 +21,11 @@ class EnrollmentHandler
     private function getData($role, $user, $course)
     {
         return [
-            'roleid' => $role,
-            'userid' => $user,
-            'courseid' => $course
+            [
+                'roleid' => $role,
+                'userid' => $user,
+                'courseid' => $course
+            ]
         ];
     }
 
