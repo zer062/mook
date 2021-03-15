@@ -9,49 +9,35 @@ use Mook\Services\Api;
 
 class EnrollmentHandler
 {
-    private $user;
-
-    private $course;
-
-    private $role;
-
-    private $credentials;
-
-    private $api;
-
     private const ENROL_ACTION = "enrol_manual_enrol_users";
     private const UNENROL_ACTION = "enrol_manual_unenrol_users";
 
-    public function __construct(Credentials $credentials, $user, $course, $role)
+    public function __construct(Credentials $credentials)
     {
         $this->credentials = $credentials;
-        $this->user = $user;
-        $this->course = $course;
-        $this->role = $role;
-
         $this->api = new Api($credentials);
     }
 
-    private function getData()
+    private function getData($role, $user, $course)
     {
         return [
-            'roleid' => $this->role,
-            'userid' => $this->user,
-            'courseid' => $this->course
+            'roleid' => $role,
+            'userid' => $user,
+            'courseid' => $course
         ];
     }
 
-    public function enroll()
+    public function enroll($role, $user, $course)
     {
         $request = new MoodleRequest('enrolments', self::ENROL_ACTION);
-        $this->api->setRequest($request->data($this->getData()))->call();
+        $this->api->setRequest($request->data($this->getData($role, $user, $course)))->call();
         return true;
     }
 
-    public function unenroll()
+    public function unenroll($role, $user, $course)
     {
         $request = new MoodleRequest('enrolments', self::UNENROL_ACTION);
-        $this->api->setRequest($request->data($this->getData()))->call();
+        $this->api->setRequest($request->data($this->getData($role, $user, $course)))->call();
         return true;
     }
 
