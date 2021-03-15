@@ -28,7 +28,7 @@ class UserHandler
 
     private function prepareToResponseOnCreate(\stdClass $item)
     {
-        $user = new User($item->username, null, null, null);
+        $user = new User($item->username, '', '', '');
         $user->setId($item->id);
         return $user;
     }
