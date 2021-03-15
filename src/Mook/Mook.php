@@ -6,6 +6,7 @@ use Mook\Categories\CategoryHandler;
 use Mook\Courses\CourseHandler;
 use Mook\Configs\MoodleCredentials;
 use Mook\Configs\Contracts\Credentials;
+use Mook\Enrollments\EnrollmentHandler;
 use Mook\Users\UserHandler;
 
 class Mook
@@ -35,5 +36,10 @@ class Mook
     public function users(): UserHandler
     {
         return new UserHandler($this->credentials());
+    }
+
+    public function enrollments(): EnrollmentHandler
+    {
+        return new EnrollmentHandler($this->credentials());
     }
 }
