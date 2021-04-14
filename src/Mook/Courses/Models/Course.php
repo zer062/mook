@@ -41,7 +41,7 @@ class Course extends Model implements CourseInterface
         $this->format = self::TOPICS_FORMAT;
     }
 
-    public function setId(int $id)
+    public function setId(int $id = null)
     {
         $this->id = $id;
     }
