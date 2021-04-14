@@ -82,7 +82,7 @@ class User extends Model implements UserInterface
         return $this->auth;
     }
 
-    public function setId(int $id)
+    public function setId(int $id = null)
     {
         return $this->id = $id;
     }

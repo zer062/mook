@@ -28,7 +28,7 @@ class Category extends Model implements CategoryInterface
         $this->name = $name;
     }
 
-    public function setId($id): void
+    public function setId($id = null): void
     {
         $this->id = $id;
     }
