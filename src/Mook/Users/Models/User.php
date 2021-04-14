@@ -100,6 +100,8 @@ class User extends Model implements UserInterface
     public function mapToRequest(): array
     {
         return [
+            'id' => $this->id,
+            'idnumber' => $this->idNumber,
             'username' => $this->username,
             'password' => $this->password,
             'firstname' => $this->firstname,
