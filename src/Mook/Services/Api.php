@@ -68,7 +68,7 @@ class Api
             throw new \Exception($responseBody->warnings[0]->message, 400);
         }
 
-        return $responseBody;
+        return (array)$responseBody;
     }
 
     private function prepareBody(): array
