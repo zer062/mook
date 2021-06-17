@@ -21,6 +21,7 @@ class Api
         $this->credentials = $credentials;
 
         $this->http = new Client([
+            'verify' => false,
             'base_uri' => $this->credentials->uri(),
             'headers' => [
                 'accept' => 'application/json'
